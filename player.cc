@@ -6,10 +6,9 @@ void Player::Move(const graphics::Image &move) {}
 
 void PlayerProjectile::Move(const graphics::Image &move) {
   if (!GameElement::IsOutOfBounds(move)) {
-    GameElement::SetX(x_ + 1);
-    GameElement::SetY(y_ + 1);
+    GameElement::SetY(y_ - 1);
   } else {
-    isactive = false;
+      isactive = false;
   }
 }
 

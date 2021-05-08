@@ -9,6 +9,8 @@
 #include "opponent.h"
 #include "player.h"
 
+//clang++ -std=c++17 main.cc game.cc game_element.cc player.cc opponent.cc cpputils/graphics/image.cc -o main -lm -lX11 -lpthread
+
 class Game : public graphics::AnimationEventListener,
              graphics::MouseEventListener {
  private:

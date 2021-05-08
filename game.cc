@@ -153,7 +153,7 @@ void Game::OnMouseEvent(const graphics::MouseEvent& event) {
   if (event.GetMouseAction() == graphics::MouseAction::kPressed ||
       event.GetMouseAction() == graphics::MouseAction::kDragged) {
     std::unique_ptr<PlayerProjectile> pp =
-        std::make_unique<PlayerProjectile>(player.GetX(), player.GetY());
+        std::make_unique<PlayerProjectile>(player.GetX() + 25, player.GetY());
     playerbeams_.push_back(std::move(pp));
   }
 }

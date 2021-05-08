@@ -1,12 +1,32 @@
 #include "opponent.h"
 #include <memory>
+#include <random>
 
 void Opponent::Move(const graphics::Image& move) {
+  const int kRange = 50;
+    int x_rate_ = rand() % kRange - kRange / 2;
+  int y_rate_ = rand() % kRange - kRange / 2;
+  x_ += x_rate_;
+  y_ += y_rate_;
+if (GameElement::IsOutOfBounds(move)){
+   isactive = false;
+}
+
   if (!GameElement::IsOutOfBounds(move)) {
-    GameElement::SetX(x_ + 1);
-    GameElement::SetY(y_ + 1);
-  } else {
-    isactive = false;
+    if (x_ < 0) {
+    x_rate_ *= -1;
+    x_ = 0;
+  } else if (x_ >= 800) {
+    x_rate_ *= -1;
+    x_ = 800 - 1;
+  }
+  if (y_ < 0) {
+    y_rate_ *= -1;
+    y_ = 0;
+  } else if (y_ >= 600) {
+    y_rate_ *= -1;
+    y_ = 600 - 1;
+  }
   }
 }
 
