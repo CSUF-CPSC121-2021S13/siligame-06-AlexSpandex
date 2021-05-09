@@ -2,7 +2,7 @@
 
 // member function
 void Game::CreateOpponents() {
-  std::unique_ptr<Opponent> ghost = std::make_unique<Opponent>(400, 50);
+  std::unique_ptr<Opponent> ghost = std::make_unique<Opponent>(rand() % 800,rand() % 600);
   opponentlist.push_back(std::move(ghost));
 }
 

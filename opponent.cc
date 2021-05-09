@@ -31,8 +31,7 @@ if (GameElement::IsOutOfBounds(move)){
 }
 
 void OpponentProjectile::Move(const graphics::Image& move) {
-  if (!GameElement::IsOutOfBounds(move)) {
-    GameElement::SetX(x_ + 1);
+  if (!GameElement::IsOutOfBounds(move)) {    
     GameElement::SetY(y_ + 1);
   } else {
     isactive = false;
@@ -40,7 +39,7 @@ void OpponentProjectile::Move(const graphics::Image& move) {
 }
 
 std::unique_ptr<OpponentProjectile> Opponent::LaunchProjectile() {
-  if (count == 50) {
+  if (count == 10) {
     std::unique_ptr<OpponentProjectile> badbeam =
         std::make_unique<OpponentProjectile>(Opponent::GetX(),
                                              Opponent::GetY());

@@ -3,6 +3,7 @@
 #include <iostream>
 #include <memory>
 #include <vector>
+#include <random>
 #include "cpputils/graphics/image.h"
 #include "cpputils/graphics/image_event.h"
 #include "game_element.h"
@@ -23,6 +24,9 @@ class Game : public graphics::AnimationEventListener,
   bool lost_ = false;
 
  public:
+ //constructor
+ Game() : backgroundscreen(800, 600) {}
+  Game(const int &width, const int &height) : backgroundscreen(width, height) {}
   // getters
   graphics::Image &GetGameScreen() { return backgroundscreen; }
   Player &GetPlayer() { return player; }
@@ -39,9 +43,6 @@ class Game : public graphics::AnimationEventListener,
 
   int GetScore() const { return player_score_; }
   bool HasLost() const { return lost_; }
-  // constructor
-  Game() : backgroundscreen(800, 600) {}
-  Game(const int &width, const int &height) : backgroundscreen(width, height) {}
 
   // member function
   void LaunchProjectiles();

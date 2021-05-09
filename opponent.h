@@ -26,6 +26,9 @@ class Opponent : public GameElement {
   std::unique_ptr<OpponentProjectile> LaunchProjectile();
 
  private:
+ const int size = 500;
+ int last_x_ = size / 2;
+  int last_y_ = size / 2;
   int count = 0;
 };
 #endif
