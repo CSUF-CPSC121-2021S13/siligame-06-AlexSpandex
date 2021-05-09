@@ -8,9 +8,6 @@ void Game::CreateOpponents() {
 
 void Game::LaunchProjectiles() {
   for (int i = 0; i < opponentlist.size(); i++) {
-    // std::unique_ptr<OpponentProjectile> badbeam
-    // =std::make_unique<OpponentProjectile>(opponentlist[i]->GetX(),
-    // opponentlist[i]->GetY())
     std::unique_ptr<OpponentProjectile> badbeam =
         opponentlist[i]->LaunchProjectile();
     if (badbeam != nullptr) {
@@ -39,17 +36,19 @@ void Game::RemoveInactive() {
 }
 
 void Game::Init() {
-  backgroundscreen.AddMouseEventListener(*this);
+  backgroundscreen.AddMouseEventListener(*this); 
   backgroundscreen.AddAnimationEventListener(*this);
   player.GameElement::SetX(player.GameElement::GetX() + 3);
   player.GameElement::SetY(player.GameElement::GetY() + 3);
 }
 
 void Game::UpdateScreen() {
-  backgroundscreen.DrawRectangle(0, 0, 800, 600, 255, 255, 255);
+//  backgroundscreen.DrawRectangle(0, 0, 800, 600, 255, 255, 255);
+
+ backgroundscreen.Load("8-bit-dance-floor.bmp");
 
   std::string show_score = "Score: " + std::to_string(player_score_);
-  backgroundscreen.DrawText(10, 10, show_score, 16, 0, 0, 0);
+  backgroundscreen.DrawText(40, 10, show_score, 30, 255, 255, 255);
 
   if (player.GetIsActive()) {
     player.Draw(backgroundscreen);
@@ -73,8 +72,9 @@ void Game::UpdateScreen() {
   }
 
   if (lost_) {
+    backgroundscreen.Load("8-bit-dance-floor.bmp");
     std::string gameOver = "Game Over";
-    backgroundscreen.DrawText(400, 300, gameOver, 30, graphics::Color(0, 0, 0));
+    backgroundscreen.DrawText(300, 300, gameOver, 50, graphics::Color(255, 255, 255));
   }
 }
 

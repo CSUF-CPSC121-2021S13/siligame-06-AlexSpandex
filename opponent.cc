@@ -39,10 +39,9 @@ void OpponentProjectile::Move(const graphics::Image& move) {
 }
 
 std::unique_ptr<OpponentProjectile> Opponent::LaunchProjectile() {
-  if (count == 10) {
+  if (count == 15) {
     std::unique_ptr<OpponentProjectile> badbeam =
-        std::make_unique<OpponentProjectile>(Opponent::GetX(),
-                                             Opponent::GetY());
+      std::make_unique<OpponentProjectile>(Opponent::GetX(),Opponent::GetY());
     count = 0;
     return badbeam;
   } else {
@@ -50,6 +49,7 @@ std::unique_ptr<OpponentProjectile> Opponent::LaunchProjectile() {
     return nullptr;
   }
 }
+
 void Opponent::Draw(graphics::Image& opponent) {
   opponent.DrawRectangle(x_ + 19, y_ + 1, 11, 2, 48, 44, 44);   ////////////
   opponent.DrawRectangle(x_ + 16, y_ + 3, 3, 2, 48, 44, 44);    /// Dark
@@ -163,7 +163,11 @@ void Opponent::Draw(graphics::Image& opponent) {
 }
 
 void OpponentProjectile::Draw(graphics::Image& opponentprojectile) {
-  opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 4, 4, 29, 27, 27);
+  int counter = 0;
+  counter++;
+
+  if(counter == 0){
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 4, 4, 255, 0, 0);
   opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 1, 1, 255, 255, 255);
   opponentprojectile.DrawRectangle(x_ + 2, y_ + 0, 1, 1, 255, 255, 255);
   opponentprojectile.DrawRectangle(x_ + 4, y_ + 0, 1, 1, 255, 255, 255);
@@ -178,4 +182,272 @@ void OpponentProjectile::Draw(graphics::Image& opponentprojectile) {
   opponentprojectile.DrawRectangle(x_ + 0, y_ + 4, 1, 1, 255, 255, 255);
   opponentprojectile.DrawRectangle(x_ + 2, y_ + 4, 1, 1, 255, 255, 255);
   opponentprojectile.DrawRectangle(x_ + 4, y_ + 4, 1, 1, 255, 255, 255);
+  }
+  if(counter == 15){
+    opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 4, 4, 255, 102, 0);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 2, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 4, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 1, y_ + 1, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 3, y_ + 1, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 2, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 2, y_ + 2, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 4, y_ + 2, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 1, y_ + 3, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 4, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 2, y_ + 4, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 4, y_ + 4, 1, 1, 255, 255, 255);
+  }
+  
+  else if(counter == 30){
+    opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 4, 4, 255, 191, 0);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 2, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 4, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 1, y_ + 1, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 3, y_ + 1, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 2, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 2, y_ + 2, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 4, y_ + 2, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 1, y_ + 3, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 4, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 2, y_ + 4, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 4, y_ + 4, 1, 1, 255, 255, 255);
+  }
+
+  if(counter == 45){
+    opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 4, 4, 255, 255, 0);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 2, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 4, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 1, y_ + 1, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 3, y_ + 1, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 2, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 2, y_ + 2, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 4, y_ + 2, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 1, y_ + 3, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 4, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 2, y_ + 4, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 4, y_ + 4, 1, 1, 255, 255, 255);
+  }
+  
+  else if(counter == 60){
+    opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 4, 4, 119, 255, 0);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 2, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 4, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 1, y_ + 1, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 3, y_ + 1, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 2, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 2, y_ + 2, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 4, y_ + 2, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 1, y_ + 3, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 4, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 2, y_ + 4, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 4, y_ + 4, 1, 1, 255, 255, 255);
+  }
+  
+  else if(counter == 75){
+    opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 4, 4, 0, 255, 0);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 2, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 4, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 1, y_ + 1, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 3, y_ + 1, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 2, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 2, y_ + 2, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 4, y_ + 2, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 1, y_ + 3, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 4, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 2, y_ + 4, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 4, y_ + 4, 1, 1, 255, 255, 255);
+  }
+    
+  else if(counter == 90){
+    opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 4, 4, 0, 255, 0);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 2, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 4, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 1, y_ + 1, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 3, y_ + 1, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 2, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 2, y_ + 2, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 4, y_ + 2, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 1, y_ + 3, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 4, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 2, y_ + 4, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 4, y_ + 4, 1, 1, 255, 255, 255);
+  
+  }
+  else if(counter == 105){
+    opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 4, 4, 0, 255, 140);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 2, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 4, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 1, y_ + 1, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 3, y_ + 1, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 2, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 2, y_ + 2, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 4, y_ + 2, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 1, y_ + 3, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 4, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 2, y_ + 4, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 4, y_ + 4, 1, 1, 255, 255, 255);
+  }
+  else if(counter == 120){
+    opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 4, 4, 0, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 2, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 4, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 1, y_ + 1, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 3, y_ + 1, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 2, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 2, y_ + 2, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 4, y_ + 2, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 1, y_ + 3, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 4, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 2, y_ + 4, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 4, y_ + 4, 1, 1, 255, 255, 255);
+  }
+  else if(counter == 135){
+    opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 4, 4, 0, 157, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 2, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 4, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 1, y_ + 1, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 3, y_ + 1, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 2, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 2, y_ + 2, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 4, y_ + 2, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 1, y_ + 3, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 4, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 2, y_ + 4, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 4, y_ + 4, 1, 1, 255, 255, 255);
+  }
+ else if(counter == 150){
+    opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 4, 4, 85, 0, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 2, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 4, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 1, y_ + 1, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 3, y_ + 1, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 2, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 2, y_ + 2, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 4, y_ + 2, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 1, y_ + 3, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 4, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 2, y_ + 4, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 4, y_ + 4, 1, 1, 255, 255, 255);
+  }
+  else if(counter == 165){
+    opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 4, 4, 128, 0, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 2, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 4, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 1, y_ + 1, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 3, y_ + 1, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 2, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 2, y_ + 2, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 4, y_ + 2, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 1, y_ + 3, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 4, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 2, y_ + 4, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 4, y_ + 4, 1, 1, 255, 255, 255);
+  }
+else if(counter == 180){
+    opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 4, 4, 200, 0, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 2, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 4, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 1, y_ + 1, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 3, y_ + 1, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 2, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 2, y_ + 2, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 4, y_ + 2, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 1, y_ + 3, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 4, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 2, y_ + 4, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 4, y_ + 4, 1, 1, 255, 255, 255);
+  }
+  else if(counter == 195){
+    opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 4, 4, 255, 0, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 2, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 4, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 1, y_ + 1, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 3, y_ + 1, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 2, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 2, y_ + 2, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 4, y_ + 2, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 1, y_ + 3, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 4, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 2, y_ + 4, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 4, y_ + 4, 1, 1, 255, 255, 255);
+  }
+  else if(counter == 210){
+    opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 4, 4, 255, 0, 162);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 2, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 4, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 1, y_ + 1, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 3, y_ + 1, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 2, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 2, y_ + 2, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 4, y_ + 2, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 1, y_ + 3, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 4, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 2, y_ + 4, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 4, y_ + 4, 1, 1, 255, 255, 255);
+  }
+  else if(counter == 225){
+    opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 4, 4, 255, 0, 81);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 2, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 4, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 1, y_ + 1, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 3, y_ + 1, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 2, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 2, y_ + 2, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 4, y_ + 2, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 1, y_ + 3, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 0, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 0, y_ + 4, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 2, y_ + 4, 1, 1, 255, 255, 255);
+  opponentprojectile.DrawRectangle(x_ + 4, y_ + 4, 1, 1, 255, 255, 255);
+  }
+  
+  
 }
+
+
+
+
