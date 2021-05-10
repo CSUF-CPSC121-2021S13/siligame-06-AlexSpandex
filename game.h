@@ -22,6 +22,7 @@ class Game : public graphics::AnimationEventListener,
   Player player;
   int player_score_ = 0;
   bool lost_ = false;
+  bool start_ = true;
 
  public:
  //constructor
@@ -30,21 +31,16 @@ class Game : public graphics::AnimationEventListener,
   // getters
   graphics::Image &GetGameScreen() { return backgroundscreen; }
   Player &GetPlayer() { return player; }
-
-  std::vector<std::unique_ptr<Opponent>> &GetOpponents() {
-    return opponentlist;
-  }
-  std::vector<std::unique_ptr<OpponentProjectile>> &GetOpponentProjectiles() {
-    return opponentbeams_;
-  }
-  std::vector<std::unique_ptr<PlayerProjectile>> &GetPlayerProjectiles() {
-    return playerbeams_;
-  }
-
+  std::vector<std::unique_ptr<Opponent>> &GetOpponents() { return opponentlist;}
+  std::vector<std::unique_ptr<OpponentProjectile>> &GetOpponentProjectiles() { return opponentbeams_; }
+  std::vector<std::unique_ptr<PlayerProjectile>> &GetPlayerProjectiles() {return playerbeams_;}
+//score and lost tracker
   int GetScore() const { return player_score_; }
   bool HasLost() const { return lost_; }
+  //startscreen
+  bool GetStart() const { return start_; }
 
-  // member function
+  // member functions
   void LaunchProjectiles();
   void RemoveInactive();
   void CreateOpponents();

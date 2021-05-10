@@ -2,7 +2,7 @@
 
 // member function
 void Game::CreateOpponents() {
-  std::unique_ptr<Opponent> ghost = std::make_unique<Opponent>(rand() % 800,rand() % 600);
+  std::unique_ptr<Opponent> ghost = std::make_unique<Opponent>(rand() % 800 , rand() % 600);
   opponentlist.push_back(std::move(ghost));
 }
 
@@ -44,7 +44,10 @@ void Game::Init() {
 
 void Game::UpdateScreen() {
 //  backgroundscreen.DrawRectangle(0, 0, 800, 600, 255, 255, 255);
-
+if(start_ == true){
+  // background.Load("start-screen-siligame-06.bmp")
+  
+}
  backgroundscreen.Load("8-bit-dance-floor.bmp");
 
   std::string show_score = "Score: " + std::to_string(player_score_);
@@ -76,6 +79,7 @@ void Game::UpdateScreen() {
     std::string gameOver = "Game Over";
     backgroundscreen.DrawText(300, 300, gameOver, 50, graphics::Color(255, 255, 255));
   }
+
 }
 
 void Game::Start() { backgroundscreen.ShowUntilClosed(); }
