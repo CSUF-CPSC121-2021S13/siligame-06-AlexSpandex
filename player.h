@@ -17,7 +17,7 @@ class PlayerProjectile : public GameElement {
   PlayerProjectile() : GameElement() {}
   void Draw(graphics::Image &draw) override;
   void Move(const graphics::Image &move) override;
-private:
-int counter = 0;
+protected:
+int count = 0;
 };
 #endif
