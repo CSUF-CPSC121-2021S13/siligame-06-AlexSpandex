@@ -10,7 +10,7 @@
 #include "opponent.h"
 #include "player.h"
 
-//clang++ -std=c++17 main.cc game.cc game_element.cc player.cc opponent.cc cpputils/graphics/image.cc -o main -lm -lX11 -lpthread
+//clang++ -std=c++17 main.cc game.cc game_element.cc player.cc opponent.cc powerup.cc cpputils/graphics/image.cc -o main -lm -lX11 -lpthread
 
 class Game : public graphics::AnimationEventListener,
              graphics::MouseEventListener {
@@ -44,8 +44,6 @@ class Game : public graphics::AnimationEventListener,
   void LaunchProjectiles();
   void RemoveInactive();
   void CreateOpponents();
-  void CreateOpponentProjectiles();
-  void CreatePlayerProjectiles();
   void Init();
   void Start();
   void UpdateScreen();

@@ -48,6 +48,11 @@ if(start_ == true){
   // background.Load("start-screen-siligame-06.bmp")
   
 }
+
+if (score_ == 100){
+
+  
+}
  backgroundscreen.Load("8-bit-dance-floor.bmp");
 
   std::string show_score = "Score: " + std::to_string(player_score_);
