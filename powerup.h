@@ -1,6 +1,7 @@
 #ifndef POWERUP_H
 #define POWERUP_H
 #include "game_element.h"
+#include <random>
 
 class Powerup : public GameElement {
   public:
