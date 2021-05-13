@@ -10,3 +10,5 @@ class Powerup : public GameElement {
   void Draw(graphics::Image &draw) override;
   void Move(const graphics::Image &move) override;
 };
+
+#endif

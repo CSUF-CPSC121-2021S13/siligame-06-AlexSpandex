@@ -9,6 +9,7 @@
 #include "game_element.h"
 #include "opponent.h"
 #include "player.h"
+#include "powerup.h"
 
 //clang++ -std=c++17 main.cc game.cc game_element.cc player.cc opponent.cc powerup.cc cpputils/graphics/image.cc -o main -lm -lX11 -lpthread
 
@@ -19,6 +20,7 @@ class Game : public graphics::AnimationEventListener,
   std::vector<std::unique_ptr<Opponent>> opponentlist;
   std::vector<std::unique_ptr<OpponentProjectile>> opponentbeams_;
   std::vector<std::unique_ptr<PlayerProjectile>> playerbeams_;
+   std::vector<std::unique_ptr<Powerup>> powerup_;
   Player player;
   int player_score_ = 0;
   bool lost_ = false;
@@ -34,6 +36,8 @@ class Game : public graphics::AnimationEventListener,
   std::vector<std::unique_ptr<Opponent>> &GetOpponents() { return opponentlist;}
   std::vector<std::unique_ptr<OpponentProjectile>> &GetOpponentProjectiles() { return opponentbeams_; }
   std::vector<std::unique_ptr<PlayerProjectile>> &GetPlayerProjectiles() {return playerbeams_;}
+  std::vector<std::unique_ptr<Powerup>> &GetPowerUp() {return powerup_;}
+
 //score and lost tracker
   int GetScore() const { return player_score_; }
   bool HasLost() const { return lost_; }
@@ -44,6 +48,7 @@ class Game : public graphics::AnimationEventListener,
   void LaunchProjectiles();
   void RemoveInactive();
   void CreateOpponents();
+  void CreatePowerup();
   void Init();
   void Start();
   void UpdateScreen();

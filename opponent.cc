@@ -32,7 +32,7 @@ if (GameElement::IsOutOfBounds(move)){
 
 void OpponentProjectile::Move(const graphics::Image& move) {
   if (!GameElement::IsOutOfBounds(move)) {    
-    GameElement::SetY(y_ + 10);
+    GameElement::SetY(y_ + 5);
   } else {
     isactive = false;
   }

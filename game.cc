@@ -2,8 +2,13 @@
 
 // member function
 void Game::CreateOpponents() {
-  std::unique_ptr<Opponent> ghost = std::make_unique<Opponent>(rand() % 800 , rand() % 600);
+  std::unique_ptr<Opponent> ghost = std::make_unique<Opponent>(rand() % 800 , rand() % 400);
   opponentlist.push_back(std::move(ghost));
+}
+
+void Game::CreatePowerup() {
+  std::unique_ptr<Powerup> star = std::make_unique<Powerup>(rand() % 800 , rand() % 50);
+  powerup_.push_back(std::move(star));
 }
 
 void Game::LaunchProjectiles() {
@@ -33,6 +38,11 @@ void Game::RemoveInactive() {
       opponentbeams_.erase(opponentbeams_.begin() + i);
     }
   }
+   for (int i = powerup_.size() - 1; i >= 0; i--) {
+    if (!(powerup_[i]->GetIsActive())) {
+      powerup_.erase(powerup_.begin() + i);
+    }
+  }
 }
 
 void Game::Init() {
@@ -49,9 +59,13 @@ if(start_ == true){
   
 }
 
-if (score_ == 100){
+if (player_score_ == 0){
+ for (int i = 0; i < powerup_.size(); i++) {
+    if (powerup_[i]->GetIsActive()) {
+      powerup_[i]->Draw(backgroundscreen);
+    }
+  }
 
-  
 }
  backgroundscreen.Load("8-bit-dance-floor.bmp");
 
@@ -78,7 +92,6 @@ if (score_ == 100){
       playerbeams_[k]->Draw(backgroundscreen);
     }
   }
-
   if (lost_) {
     backgroundscreen.Load("8-bit-dance-floor.bmp");
     std::string gameOver = "Game Over";
@@ -105,10 +118,16 @@ void Game::MoveGameElements() {
       playerbeams_[k]->Move(backgroundscreen);
     }
   }
+
+  for (int i = 0; i < powerup_.size(); i++) {
+    if (powerup_[i]->GetIsActive()) {
+      powerup_[i]->Move(backgroundscreen);
+    }
+  }
 }
 
 void Game::FilterIntersections() {
-  // Opponent
+  // Opponent and Player
   for (int i = 0; i < opponentlist.size(); i++) {
     if (opponentlist[i]->IntersectsWith(&player)) {
       opponentlist[i]->SetIsActive(false);
@@ -117,7 +136,7 @@ void Game::FilterIntersections() {
     }
   }
 
-  // Player Projectile
+  // Player Projectile and Opponent
   for (int j = 0; j < playerbeams_.size(); j++) {
     for (int x = 0; x < opponentlist.size(); x++) {
       if (playerbeams_[j]->IntersectsWith(opponentlist[x].get())) {
@@ -129,7 +148,7 @@ void Game::FilterIntersections() {
       }
     }
   }
-  // Opponent Projectile
+  // Opponent Projectile and Player
   for (int k = 0; k < opponentbeams_.size(); k++) {
     if (opponentbeams_[k]->IntersectsWith(&player)) {
       opponentbeams_[k]->SetIsActive(false);
@@ -137,9 +156,19 @@ void Game::FilterIntersections() {
       lost_ = true;
     }
   }
+  //Powerup and Player
+  for (int i = 0; i < powerup_.size(); i++) {
+    if (powerup_[i]->IntersectsWith(&player)) {
+      powerup_[i]->SetIsActive(false);
+    }
+  }
 }
 
 void Game::OnAnimationStep() {
+  if(powerup_.size() == 0){
+    CreatePowerup();
+  }
+
   if (opponentlist.size() == 0) {
     CreateOpponents();
   }
